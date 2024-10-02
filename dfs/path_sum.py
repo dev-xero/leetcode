@@ -6,6 +6,7 @@ Given the root of a binary tree and an integer targetSum, return true if the tre
 A leaf is a node with no children.
 """
 
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -20,7 +21,7 @@ class Solution:
         def dfs(root, depth_sum):
             if not root:
                 return False
-            
+
             depth_sum += root.val
 
             if not root.left and not root.right and depth_sum == targetSum:
@@ -30,7 +31,6 @@ class Solution:
 
             dfs(root.left, depth_sum)
             dfs(root.right, depth_sum)
-        
+
         dfs(root, 0)
         return found
-        
