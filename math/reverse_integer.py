@@ -10,8 +10,7 @@ Assume the environment does not allow you to store 64-bit integers (signed or un
 
 class Solution:
     def reverse(self, x: int) -> int:
-        MIN, MAX = -(2**31), 2**31 - 1
-        res = 0
+        res, MAX = 0, -(2**31)
 
         sign = 1 if x > 0 else -1
         x = abs(x)
