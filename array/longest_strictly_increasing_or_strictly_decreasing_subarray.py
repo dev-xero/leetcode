@@ -29,3 +29,28 @@ class Solution:
             sub = max(sub, curr)
 
         return sub
+
+    def longestMonotonicSubarrayQ(self, nums: List[int]) -> int:
+        """
+        Same problem, optimized - O(n)
+        """
+        N = len(nums)
+        incLength, decLength = 1, 1
+        maxLength = 1
+
+        for i in range(1, N):
+            if nums[i] > nums[i-1]:
+                incLength += 1
+                decLength = 1
+
+            elif nums[i-1] > nums[i]:
+                decLength += 1
+                incLength = 1
+            
+            else:
+                incLength = 1
+                decLength = 1
+            
+            maxLength = max(maxLength, incLength, decLength)
+
+        return maxLength
